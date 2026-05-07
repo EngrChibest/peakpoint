@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import { ModalProvider, useModal } from './context/ModalContext';
@@ -14,6 +14,14 @@ import Contact from './pages/Contact';
 import Facilities from './pages/Facilities';
 import Policies from './pages/Policies';
 import News from './pages/News';
+
+const ScrollToTop = () => {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+};
 
 const FloatingCTA = () => {
   const { openBooking } = useModal();
@@ -56,7 +64,8 @@ function AppContent() {
 function App() {
   return (
     <ModalProvider>
-      <Router>
+      <Router basename="/peakpoint">
+        <ScrollToTop />
         <AppContent />
       </Router>
     </ModalProvider>
