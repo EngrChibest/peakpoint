@@ -89,7 +89,7 @@ const About = () => {
                 <img src={chairmanImg} alt="Chairman" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border-l-4 border-primary max-w-[240px]">
-                <p className="font-baloo font-bold text-primary text-xl leading-tight">Engr. Olusegun Somorin</p>
+                <p className="font-baloo font-bold text-primary text-xl leading-tight">Rev. Dr. Prince Chima Nnabugwu</p>
                 <p className="text-text-muted text-sm font-medium">Chairman / Founder</p>
               </div>
             </div>
