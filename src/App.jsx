@@ -14,6 +14,7 @@ import Contact from './pages/Contact';
 import Facilities from './pages/Facilities';
 import Policies from './pages/Policies';
 import News from './pages/News';
+import Login from './pages/Login';
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -52,6 +53,7 @@ function AppContent() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/policies" element={<Policies />} />
           <Route path="/news" element={<News />} />
+          <Route path="/login" element={<Login />} />
         </Routes>
       </main>
       <Footer />

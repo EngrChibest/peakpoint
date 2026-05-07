@@ -41,7 +41,7 @@ const Header = () => {
           <Link to="/facilities" className={`font-semibold transition-colors hover:underline underline-offset-4 hover:opacity-80 ${isScrolled ? 'text-primary' : 'text-secondary'}`}>Campus Life</Link>
           <Link to="/news" className={`font-semibold transition-colors hover:underline underline-offset-4 hover:opacity-80 ${isScrolled ? 'text-primary' : 'text-secondary'}`}>News</Link>
           <Link to="/contact" className={`font-semibold transition-colors hover:underline underline-offset-4 hover:opacity-80 ${isScrolled ? 'text-primary' : 'text-secondary'}`}>Contact Us</Link>
-          <Link to="/portal" className="btn btn-primary text-sm px-6">
+          <Link to="/login" className="btn btn-primary text-sm px-6">
             <User size={16} /> Portal
           </Link>
         </nav>
@@ -63,7 +63,7 @@ const Header = () => {
             <Link to="/facilities" className="font-semibold text-lg text-text hover:text-primary hover:underline underline-offset-4 transition-colors" onClick={() => setIsOpen(false)}>Campus Life</Link>
             <Link to="/news" className="font-semibold text-lg text-text hover:text-primary hover:underline underline-offset-4 transition-colors" onClick={() => setIsOpen(false)}>News</Link>
             <Link to="/contact" className="font-semibold text-lg text-text hover:text-primary hover:underline underline-offset-4 transition-colors" onClick={() => setIsOpen(false)}>Contact Us</Link>
-            <Link to="/portal" className="btn btn-primary w-full max-w-[200px] mt-2 justify-center" onClick={() => setIsOpen(false)}>
+            <Link to="/login" className="btn btn-primary w-full max-w-[200px] mt-2 justify-center" onClick={() => setIsOpen(false)}>
               <User size={18} /> Portal
             </Link>
           </div>
