@@ -40,9 +40,12 @@ const FloatingCTA = () => {
 };
 
 function AppContent() {
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/login';
+
   return (
     <div className="app">
-      <Header />
+      {!isLoginPage && <Header />}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -56,9 +59,9 @@ function AppContent() {
           <Route path="/login" element={<Login />} />
         </Routes>
       </main>
-      <Footer />
+      {!isLoginPage && <Footer />}
       <BookingModal />
-      <FloatingCTA />
+      {!isLoginPage && <FloatingCTA />}
     </div>
   );
 }
