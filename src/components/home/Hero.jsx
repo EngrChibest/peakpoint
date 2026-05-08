@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Play } from 'lucide-react';
 import heroImage from '../../assets/hero.png';
@@ -35,9 +36,9 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <button className="btn btn-secondary px-8 py-4 text-lg group">
+              <Link to="/apply" className="btn btn-secondary px-8 py-4 text-lg group">
                 Apply Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
               <button className="btn bg-white/10 hover:bg-white/20 text-white px-8 py-4 text-lg border border-white/20 backdrop-blur-sm flex items-center gap-3">
                 <div className="bg-white/20 p-2 rounded-full">
                   <Play size={16} fill="white" />

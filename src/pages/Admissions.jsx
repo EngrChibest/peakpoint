@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import InnerBanner from '../components/layout/InnerBanner';
 import { ClipboardCheck, Calendar, MapPin, CheckCircle, Download, HelpCircle, ChevronDown, Clock, Users, ArrowRight, FileText } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -68,9 +69,9 @@ const Admissions = () => {
           </div>
 
           <div className="mt-24 text-center">
-            <button className="btn btn-secondary px-12 py-5 text-lg shadow-xl hover:scale-105 transition-transform">
+            <Link to="/apply" className="btn btn-secondary px-12 py-5 text-lg shadow-xl hover:scale-105 transition-transform">
               Enrol Now
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -233,9 +234,9 @@ const Admissions = () => {
                  </p>
                  
                  <div className="flex flex-col sm:flex-row gap-4 justify-center w-full">
-                    <button className="btn btn-secondary px-10 py-5 text-lg shadow-[0_10px_30px_-10px_rgba(240,225,185,0.5)] hover:scale-105 transition-transform">
+                    <Link to="/apply" className="btn btn-secondary px-10 py-5 text-lg shadow-[0_10px_30px_-10px_rgba(240,225,185,0.5)] hover:scale-105 transition-transform">
                       Enrol Now
-                    </button>
+                    </Link>
                     <button 
                       onClick={openBooking}
                       className="btn border-2 border-white/20 hover:bg-white/10 text-white px-10 py-5 text-lg"
