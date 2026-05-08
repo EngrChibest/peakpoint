@@ -130,24 +130,25 @@ const Home = () => {
             <div>
               <h2 className="text-4xl mb-6">Why Choose Peak Point?</h2>
               <p className="text-text-muted text-lg mb-8 leading-relaxed">
-                We are committed to providing an education that goes beyond textbooks. 
-                Our holistic approach ensures that every student is equipped with the 
-                skills and values needed to thrive in an ever-changing world.
+                Peak Point International Schools is committed to academic excellence, character development, and innovation. We provide a conducive environment where learners are empowered to succeed academically and socially.
               </p>
               
-              <div className="grid grid-cols-1 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { icon: <Users size={24} />, title: 'Small Class Sizes', desc: 'Personalized attention for every student.' },
-                  { icon: <Trophy size={24} />, title: 'Global Recognition', desc: 'Accredited by leading international bodies.' },
-                  { icon: <Target size={24} />, title: 'Modern Facilities', desc: 'State-of-the-art labs and creative spaces.' },
+                  { title: 'Conducive Environment', desc: 'Serene and learner-friendly atmosphere.' },
+                  { title: 'Dedicated Teachers', desc: 'Qualified educators focused on student growth.' },
+                  { title: 'Moral Foundation', desc: 'Strong focus on character and academic standards.' },
+                  { title: 'Tech-Supported', desc: 'Modern technology integrated into learning.' },
+                  { title: 'Balanced Activities', desc: 'Harmony of academic and extracurricular life.' },
+                  { title: 'Leadership Focus', desc: 'Nurturing creativity and future leaders.' },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
-                    <div className="bg-primary text-white p-3 rounded-lg h-fit">
-                      {item.icon}
+                    <div className="bg-primary text-white p-3 rounded-lg h-fit flex-shrink-0">
+                      <Target size={20} />
                     </div>
                     <div>
-                      <h4 className="text-xl mb-1">{item.title}</h4>
-                      <p className="text-text-muted">{item.desc}</p>
+                      <h4 className="text-lg font-bold mb-1 leading-tight">{item.title}</h4>
+                      <p className="text-text-muted text-sm">{item.desc}</p>
                     </div>
                   </div>
                 ))}
