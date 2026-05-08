@@ -72,10 +72,10 @@ const News = () => {
 
       <section className="section bg-bg-soft">
         <div className="container">
-          <div className="grid md:grid-cols-4 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
             
             {/* Sidebar / Categories */}
-            <div className="md:col-span-1">
+            <div className="md:col-span-3">
               <div className="bg-white rounded-2xl p-6 shadow-sm border border-border/50 sticky top-32">
                 <h3 className="text-xl font-bold text-primary mb-6 flex items-center gap-2 border-b pb-4">
                   <Tag size={20} /> Categories
@@ -100,7 +100,7 @@ const News = () => {
             </div>
 
             {/* News Feed */}
-            <div className="md:col-span-3">
+            <div className="md:col-span-9">
               <div className="flex-between mb-8 items-center">
                 <h2 className="text-2xl font-bold">{activeCategory}</h2>
                 <span className="text-sm text-text-muted font-medium bg-white px-4 py-1.5 rounded-full border shadow-sm">
