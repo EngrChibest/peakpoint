@@ -113,7 +113,7 @@ const News = () => {
                   <p className="text-text-muted text-lg">No news items found for this category yet. Please check back later!</p>
                 </div>
               ) : (
-                <div className="grid md:grid-cols-2 gap-8">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                   {filteredNews.map((news, index) => (
                     <div key={index} className="bg-white rounded-2xl shadow-sm border overflow-hidden hover:shadow-xl transition-all group flex flex-col">
                       <div className="p-8 flex-1">
