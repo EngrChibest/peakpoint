@@ -3,6 +3,7 @@ import InnerBanner from '../components/layout/InnerBanner';
 import { Target, Eye, Heart, Award, Shield, Music, BookOpen, Quote, Play, Pause } from 'lucide-react';
 import { motion } from 'framer-motion';
 import chairmanImg from '../assets/chairman.png';
+import bannerImg from '../assets/banners/about.png';
 
 const About = () => {
   const containerVariants = {
@@ -28,6 +29,7 @@ const About = () => {
       <InnerBanner 
         title="About Our School" 
         subtitle="A legacy of excellence, innovation, and community at Peak Point Int'l Schools."
+        image={bannerImg}
       />
       
       {/* Our Story Section */}

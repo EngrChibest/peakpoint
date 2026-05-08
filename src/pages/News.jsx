@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import InnerBanner from '../components/layout/InnerBanner';
 import { Calendar, ArrowRight, Tag } from 'lucide-react';
+import bannerImg from '../assets/banners/news.png';
 
 const News = () => {
   const categories = [
@@ -66,6 +67,7 @@ const News = () => {
       <InnerBanner 
         title="News & Updates" 
         subtitle="Stay informed about the latest events, achievements, and announcements from our vibrant community."
+        image={bannerImg}
       />
 
       <section className="section bg-bg-soft">

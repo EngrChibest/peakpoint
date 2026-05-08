@@ -1,6 +1,7 @@
 import React from 'react';
 import InnerBanner from '../components/layout/InnerBanner';
 import { BookOpen, Target, Award, CheckCircle, Heart, Microscope, Users } from 'lucide-react';
+import bannerImg from '../assets/banners/academics.png';
 
 const Academics = () => {
   return (
@@ -8,6 +9,7 @@ const Academics = () => {
       <InnerBanner 
         title="Academics" 
         subtitle="Experience a world-class education designed to inspire brilliance and character."
+        image={bannerImg}
       />
 
       {/* Curriculum Overview Section */}

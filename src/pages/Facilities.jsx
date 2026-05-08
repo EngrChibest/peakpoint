@@ -12,6 +12,7 @@ import innovation from '../assets/facilities/innovation_extracurricular.png';
 import creativity from '../assets/facilities/creativity_extracurricular.png';
 import teamwork from '../assets/facilities/teamwork_extracurricular.png';
 import character from '../assets/facilities/character_extracurricular.png';
+import bannerImg from '../assets/banners/facilities.png';
 
 const Facilities = () => {
   const facilities = [
@@ -29,6 +30,7 @@ const Facilities = () => {
       <InnerBanner 
         title="Facilities & Campus Life" 
         subtitle="A world-class environment designed to inspire every facet of your child's potential."
+        image={bannerImg}
       />
 
       {/* Facilities Grid */}

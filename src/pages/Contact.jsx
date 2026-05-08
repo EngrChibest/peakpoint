@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import InnerBanner from '../components/layout/InnerBanner';
 import { Mail, Phone, MapPin, Clock, Send, ChevronDown } from 'lucide-react';
+import bannerImg from '../assets/banners/contact.png';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Contact = () => {
@@ -20,6 +21,7 @@ const Contact = () => {
       <InnerBanner 
         title="Contact Us" 
         subtitle="We're here to help. Reach out to us for any inquiries or to schedule a visit."
+        image={bannerImg}
       />
 
       <section className="section">

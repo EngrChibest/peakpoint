@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { useModal } from '../context/ModalContext';
 import logo from '../assets/logo.png';
+import bannerImg from '../assets/banners/admissions.png';
 
 const Admissions = () => {
   const { openBooking } = useModal();
@@ -36,6 +37,7 @@ const Admissions = () => {
       <InnerBanner 
         title="Admissions" 
         subtitle="Start a transformative educational journey for your child today."
+        image={bannerImg}
       />
 
       {/* Process Section */}
