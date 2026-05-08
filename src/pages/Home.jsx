@@ -289,30 +289,40 @@ const Home = () => {
               }
             ].map((event, i) => (
               <div key={i} className="bg-white rounded-2xl shadow-md border overflow-hidden group hover:shadow-xl transition-all">
-                <div className="h-48 bg-bg-soft relative overflow-hidden">
+                <div className="h-40 bg-bg-soft relative overflow-hidden">
                   <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
+                  <div className="absolute inset-0 bg-primary/20 group-hover:bg-transparent transition-colors duration-500"></div>
                   
-                  <div className="absolute top-4 left-4 bg-primary text-white text-center rounded-xl overflow-hidden shadow-lg">
-                    <div className="bg-secondary text-primary font-bold text-xs py-1 px-3">
+                  <div className="absolute top-4 left-4 bg-primary text-white text-center rounded-xl overflow-hidden shadow-xl border border-white/20">
+                    <div className="bg-secondary text-primary font-bold text-[10px] py-1 px-3 uppercase tracking-tighter">
                       {event.month}
                     </div>
-                    <div className="text-2xl font-bold font-baloo px-3 py-2">
+                    <div className="text-xl font-bold font-baloo px-3 py-1.5">
                       {event.date}
                     </div>
                   </div>
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="text-xl font-bold mb-3 group-hover:text-secondary transition-colors">{event.title}</h3>
-                  <p className="text-text-muted mb-4 text-sm leading-relaxed">{event.desc}</p>
+                <div className="p-8">
+                  <h3 className="text-2xl font-baloo font-bold text-primary mb-3 leading-tight group-hover:text-secondary transition-colors">
+                    {event.title}
+                  </h3>
+                  <p className="text-text-muted text-base leading-relaxed mb-6">
+                    {event.desc}
+                  </p>
                   
-                  <div className="flex flex-col gap-2 pt-4 border-t border-border">
-                    <div className="flex items-center gap-2 text-sm text-text-muted">
-                      <Clock size={16} className="text-secondary" /> {event.time}
+                  <div className="flex flex-col gap-3 pt-6 border-t border-primary/5">
+                    <div className="flex items-center gap-3 text-sm font-semibold text-primary/70">
+                      <div className="bg-secondary/20 p-1.5 rounded-lg">
+                        <Clock size={14} className="text-primary" />
+                      </div>
+                      {event.time}
                     </div>
-                    <div className="flex items-center gap-2 text-sm text-text-muted">
-                      <MapPin size={16} className="text-secondary" /> {event.location}
+                    <div className="flex items-center gap-3 text-sm font-semibold text-primary/70">
+                      <div className="bg-secondary/20 p-1.5 rounded-lg">
+                        <MapPin size={14} className="text-primary" />
+                      </div>
+                      {event.location}
                     </div>
                   </div>
                 </div>
