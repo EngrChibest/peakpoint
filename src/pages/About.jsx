@@ -40,25 +40,25 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-4 block">Our Story</span>
-              <h2 className="text-4xl mb-6">Built on a Vision of Excellence</h2>
+              <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-4 block">Our Commitment</span>
+              <h2 className="text-4xl mb-6">Excellence in Every Step</h2>
               <p className="text-text-muted text-lg mb-6 leading-relaxed">
-                Peak Point Int'l Schools was founded with a single mission: to provide 
-                a holistic education that prepares students for the challenges of a globalized world. 
-                Our approach combines academic rigor with creative expression and social responsibility.
+                Peak Point International Schools is committed to academic excellence, character development, innovation, and holistic learner growth. 
+                The school provides a conducive and engaging environment where learners are empowered to succeed academically and socially.
               </p>
-              <p className="text-text-muted text-lg mb-8 leading-relaxed">
-                Over the years, we have grown into a diverse community of learners, educators, 
-                and families, all dedicated to the pursuit of knowledge and personal growth.
-              </p>
-              <div className="flex gap-8">
-                <div>
-                  <div className="text-4xl font-bold text-primary mb-1">15+</div>
-                  <div className="text-text-muted text-sm uppercase font-bold">Years Experience</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-primary mb-1">50+</div>
-                  <div className="text-text-muted text-sm uppercase font-bold">Nationalities</div>
+              
+              <div className="mt-10">
+                <h4 className="text-primary font-bold mb-4 uppercase tracking-wider text-sm">Academic Structure</h4>
+                <div className="grid grid-cols-2 gap-4">
+                  {[
+                    'Early Years', 'Nursery Section', 'Primary Section', 
+                    'Junior Secondary', 'Senior Secondary'
+                  ].map((level, i) => (
+                    <div key={i} className="flex items-center gap-2 text-text-muted">
+                      <div className="w-2 h-2 rounded-full bg-secondary"></div>
+                      <span className="font-medium">{level}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </motion.div>
@@ -115,46 +115,86 @@ const About = () => {
         </div>
       </section>
 
-      {/* Mission, Vision, Values Section */}
-      <section className="section">
+      {/* Mission, Vision, Values, Philosophy Section */}
+      <section className="section bg-white">
         <div className="container">
           <motion.div 
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="grid md:grid-cols-3 gap-8"
+            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
           >
-            <motion.div variants={itemVariants} className="bg-white p-10 rounded-3xl shadow-md border hover:shadow-xl transition-all group">
-              <div className="bg-primary text-white p-4 rounded-2xl w-fit mb-6 group-hover:scale-110 transition-transform">
-                <Target size={32} />
+            <motion.div variants={itemVariants} className="bg-bg-soft p-8 rounded-[2rem] border border-border/50 hover:shadow-xl transition-all group">
+              <div className="bg-primary text-white p-3 rounded-xl w-fit mb-6 group-hover:scale-110 transition-transform">
+                <Target size={24} />
               </div>
-              <h3 className="text-2xl mb-4">Our Mission</h3>
-              <p className="text-text-muted leading-relaxed">
+              <h3 className="text-xl font-bold mb-3">Our Mission</h3>
+              <p className="text-text-muted text-sm leading-relaxed">
                 To provide quality, child-centered, and value-driven education that nurtures academic excellence, leadership, creativity, discipline, and lifelong learning.
               </p>
             </motion.div>
             
-            <motion.div variants={itemVariants} className="bg-white p-10 rounded-3xl shadow-md border hover:shadow-xl transition-all group">
-              <div className="bg-secondary text-primary p-4 rounded-2xl w-fit mb-6 group-hover:scale-110 transition-transform">
-                <Eye size={32} />
+            <motion.div variants={itemVariants} className="bg-bg-soft p-8 rounded-[2rem] border border-border/50 hover:shadow-xl transition-all group">
+              <div className="bg-secondary text-primary p-3 rounded-xl w-fit mb-6 group-hover:scale-110 transition-transform">
+                <Eye size={24} />
               </div>
-              <h3 className="text-2xl mb-4">Our Vision</h3>
-              <p className="text-text-muted leading-relaxed">
+              <h3 className="text-xl font-bold mb-3">Our Vision</h3>
+              <p className="text-text-muted text-sm leading-relaxed">
                 To raise confident, responsible, innovative, and globally competitive learners equipped for future success and positive societal impact.
               </p>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="bg-white p-10 rounded-3xl shadow-md border hover:shadow-xl transition-all group">
-              <div className="bg-accent text-white p-4 rounded-2xl w-fit mb-6 group-hover:scale-110 transition-transform">
-                <Heart size={32} />
+            <motion.div variants={itemVariants} className="bg-bg-soft p-8 rounded-[2rem] border border-border/50 hover:shadow-xl transition-all group">
+              <div className="bg-accent text-white p-3 rounded-xl w-fit mb-6 group-hover:scale-110 transition-transform">
+                <BookOpen size={24} />
               </div>
-              <h3 className="text-2xl mb-4">Our Values</h3>
-              <p className="text-text-muted leading-relaxed">
+              <h3 className="text-xl font-bold mb-3">Educational Philosophy</h3>
+              <p className="text-text-muted text-sm leading-relaxed">
+                We believe every child possesses unique abilities that can be nurtured through quality education, discipline, encouragement, and purposeful mentorship.
+              </p>
+            </motion.div>
+
+            <motion.div variants={itemVariants} className="bg-bg-soft p-8 rounded-[2rem] border border-border/50 hover:shadow-xl transition-all group">
+              <div className="bg-primary text-white p-3 rounded-xl w-fit mb-6 group-hover:scale-110 transition-transform">
+                <Heart size={24} />
+              </div>
+              <h3 className="text-xl font-bold mb-3">Our Values</h3>
+              <p className="text-text-muted text-sm leading-relaxed">
                 <strong>Integrity, Excellence, Innovation, & Leadership.</strong> These core pillars guide our actions and define our community's character.
               </p>
             </motion.div>
           </motion.div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="section bg-bg-soft">
+        <div className="container">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-4 block">The Peak Point Edge</span>
+            <h2 className="text-4xl mb-4">Why Choose Us?</h2>
+            <p className="text-text-muted">A dedicated focus on what matters most for your child's future.</p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              { title: 'Conducive Environment', desc: 'A serene and learner-friendly atmosphere that supports academic focus and safety.' },
+              { title: 'Dedicated Teachers', desc: 'Qualified educators committed to personalized learner development and excellence.' },
+              { title: 'Strong Foundations', desc: 'A rigorous focus on moral and academic standards from the very first steps.' },
+              { title: 'Tech-Supported', desc: 'Integration of modern technology to enhance the learning experience and digital literacy.' },
+              { title: 'Balanced Activities', desc: 'A perfect harmony between academic rigor and vibrant extracurricular programs.' },
+              { title: 'Future Leaders', desc: 'Intentional mentorship designed to nurture creativity, leadership, and social impact.' }
+            ].map((item, i) => (
+              <div key={i} className="flex gap-4">
+                <div className="mt-1"><Shield className="text-secondary" size={24} /></div>
+                <div>
+                  <h4 className="font-bold text-primary mb-1">{item.title}</h4>
+                  <p className="text-text-muted text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
