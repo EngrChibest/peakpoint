@@ -5,6 +5,7 @@ import { BookOpen, Users, Trophy, Target, ArrowRight, Quote, Calendar, Clock, Ma
 import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/logo.png';
 import testimonialBg from '../assets/testimonial_bg.png';
+import whyChooseUsImg from '../assets/home/why_choose_us.png';
 
 const Home = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -156,12 +157,10 @@ const Home = () => {
             </div>
             
             <div className="relative">
-              <div className="aspect-square bg-bg-soft rounded-3xl overflow-hidden shadow-xl">
-                {/* I could use another generated image here */}
-                <div className="w-full h-full bg-gradient-to-br from-primary/5 to-accent/5 flex-center p-12">
-                   <img src={logo} alt="PPIS Logo" className="w-full h-full object-contain opacity-50 grayscale hover:grayscale-0 transition-all duration-500" />
-                </div>
+              <div className="aspect-square bg-bg-soft rounded-3xl overflow-hidden shadow-2xl">
+                <img src={whyChooseUsImg} alt="Students collaborating" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
               </div>
+              <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-secondary rounded-full mix-blend-multiply opacity-20 blur-3xl"></div>
             </div>
           </div>
         </div>
