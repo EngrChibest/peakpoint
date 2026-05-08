@@ -36,7 +36,7 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-wrap gap-4">
-              <Link to="/apply" className="btn btn-secondary px-8 py-4 text-lg group">
+              <Link to="/apply" className="bg-secondary text-primary px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 hover:bg-secondary-light hover:-translate-y-1 transition-all shadow-lg group">
                 Apply Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
               </Link>
               <button className="btn bg-white/10 hover:bg-white/20 text-white px-8 py-4 text-lg border border-white/20 backdrop-blur-sm flex items-center gap-3">
