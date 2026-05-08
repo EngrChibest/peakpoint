@@ -28,7 +28,7 @@ const About = () => {
     <div className="about-page">
       <InnerBanner 
         title="About Our School" 
-        subtitle="A legacy of excellence, innovation, and community at Peak Point Int'l Schools."
+        subtitle="A legacy of excellence, innovation, and community at Peak Point International Schools."
         image={bannerImg}
       />
       
@@ -227,7 +227,7 @@ const About = () => {
                   <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
                     <h4 className="text-secondary uppercase text-sm font-bold tracking-widest mb-2">School Pledge</h4>
                     <p className="italic leading-relaxed text-lg">
-                      "I pledge to Peak Point Int'l Schools, my alma mater, to be diligent in my studies, respectful to my mentors, and a light to my community. I will uphold the values of integrity and excellence in all my endeavors."
+                      "I pledge to Peak Point International Schools, my alma mater, to be diligent in my studies, respectful to my mentors, and a light to my community. I will uphold the values of integrity and excellence in all my endeavors."
                     </p>
                   </div>
                 </div>

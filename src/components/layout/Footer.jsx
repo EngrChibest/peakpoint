@@ -13,7 +13,7 @@ const Footer = () => {
               <div className="w-16 h-16 flex-center">
                 <img src={logo} alt="PPIS Logo" className="w-full h-full object-contain" />
               </div>
-              <span className="font-bold text-xl tracking-tight font-baloo leading-tight">PEAK POINT INT'L SCHOOLS</span>
+              <span className="font-bold text-xl tracking-tight font-baloo leading-tight">PEAK POINT INTERNATIONAL SCHOOLS</span>
             </Link>
             <p className="text-white/60 mb-6 leading-relaxed font-medium italic">
               "Raising Role Models with Excellence & Character"
@@ -71,7 +71,7 @@ const Footer = () => {
         </div>
 
         <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/40">
-          <p>© {new Date().getFullYear()} Peak Point Int'l Schools. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Peak Point International Schools. All rights reserved.</p>
           <div className="flex gap-8">
             <Link to="/policies" className="hover:text-white">Policies & Safeguarding</Link>
             <a href="#" className="hover:text-white">Terms of Service</a>

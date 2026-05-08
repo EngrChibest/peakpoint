@@ -185,7 +185,7 @@ const Home = () => {
             </span>
             <h2 className="text-4xl mb-4 text-white">What Our Community Says</h2>
             <p className="text-white/80 text-lg">
-              Hear from our students and parents about their experiences at Peak Point Int'l Schools.
+              Hear from our students and parents about their experiences at Peak Point International Schools.
             </p>
           </div>
 

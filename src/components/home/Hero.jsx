@@ -31,7 +31,7 @@ const Hero = () => {
               Shaping Future <span className="text-secondary">Leaders</span> Today.
             </h1>
             <p className="text-white/80 text-lg md:text-xl mb-10 max-w-xl leading-relaxed">
-              Experience a world-class education at Peak Point Int'l Schools. 
+              Experience a world-class education at Peak Point International Schools. 
               Raising Role Models with Excellence & Character.
             </p>
             

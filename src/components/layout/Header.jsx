@@ -26,7 +26,7 @@ const Header = () => {
           </div>
           <div className={`flex flex-col font-baloo transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-secondary'}`}>
             <span className="font-bold text-xl tracking-tight leading-none whitespace-nowrap">PEAK POINT</span>
-            <span className="text-[10px] font-bold tracking-[0.15em] uppercase whitespace-nowrap -mt-1">Int'l Schools</span>
+            <span className="text-[10px] font-bold tracking-[0.15em] uppercase whitespace-nowrap -mt-1">International Schools</span>
           </div>
         </Link>
 
