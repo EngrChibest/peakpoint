@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { User, Phone, Mail, MapPin, GraduationCap, Calendar, Clock, CheckCircle, ArrowRight, Upload, Info } from 'lucide-react';
 import InnerBanner from '../components/layout/InnerBanner';
-import applyBanner from '../assets/banners/apply_banner.png';
+import applyBanner from '../assets/banners/apply.png';
 
 const Apply = () => {
   const [formStep, setFormStep] = useState(1);
