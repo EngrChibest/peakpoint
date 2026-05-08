@@ -131,7 +131,7 @@ const About = () => {
               </div>
               <h3 className="text-2xl mb-4">Our Mission</h3>
               <p className="text-text-muted leading-relaxed">
-                To provide a world-class, holistic education that empowers every student with the character, skills, and knowledge required to thrive in a globalized society.
+                To provide quality, child-centered, and value-driven education that nurtures academic excellence, leadership, creativity, discipline, and lifelong learning.
               </p>
             </motion.div>
             
@@ -141,7 +141,7 @@ const About = () => {
               </div>
               <h3 className="text-2xl mb-4">Our Vision</h3>
               <p className="text-text-muted leading-relaxed">
-                To be a globally recognized center of educational excellence, nurturing innovators and leaders who will positively transform the world.
+                To raise confident, responsible, innovative, and globally competitive learners equipped for future success and positive societal impact.
               </p>
             </motion.div>
 
