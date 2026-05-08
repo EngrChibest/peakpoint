@@ -6,6 +6,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import logo from '../assets/logo.png';
 import testimonialBg from '../assets/testimonial_bg.png';
 import whyChooseUsImg from '../assets/home/why_choose_us.png';
+import scienceNewsImg from '../assets/home/science_news.png';
+import conferenceNewsImg from '../assets/home/conference_news.png';
+import sportsNewsImg from '../assets/home/sports_news.png';
 
 const Home = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -263,7 +266,8 @@ const Home = () => {
                 title: "Annual Science Exhibition",
                 desc: "Join us as our students showcase their innovative science projects.",
                 time: "09:00 AM - 02:00 PM",
-                location: "School Main Hall"
+                location: "School Main Hall",
+                image: scienceNewsImg
               },
               {
                 date: "28",
@@ -271,7 +275,8 @@ const Home = () => {
                 title: "Parent-Teacher Conference",
                 desc: "An opportunity to discuss your child's progress with their teachers.",
                 time: "01:00 PM - 05:00 PM",
-                location: "Classrooms"
+                location: "Classrooms",
+                image: conferenceNewsImg
               },
               {
                 date: "05",
@@ -279,13 +284,14 @@ const Home = () => {
                 title: "Inter-House Sports Competition",
                 desc: "Cheer on our athletes in our annual inter-house sports festival.",
                 time: "10:00 AM - 04:00 PM",
-                location: "School Sports Field"
+                location: "School Sports Field",
+                image: sportsNewsImg
               }
             ].map((event, i) => (
               <div key={i} className="bg-white rounded-2xl shadow-md border overflow-hidden group hover:shadow-xl transition-all">
-                <div className="h-48 bg-bg-soft relative overflow-hidden flex-center">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 group-hover:scale-105 transition-transform duration-500"></div>
-                  <Calendar size={64} className="text-primary/20" />
+                <div className="h-48 bg-bg-soft relative overflow-hidden">
+                  <img src={event.image} alt={event.title} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-primary/10 group-hover:bg-transparent transition-colors duration-500"></div>
                   
                   <div className="absolute top-4 left-4 bg-primary text-white text-center rounded-xl overflow-hidden shadow-lg">
                     <div className="bg-secondary text-primary font-bold text-xs py-1 px-3">
