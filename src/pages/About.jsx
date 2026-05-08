@@ -159,10 +159,18 @@ const About = () => {
               <div className="bg-primary text-white p-3 rounded-xl w-fit mb-6 group-hover:scale-110 transition-transform">
                 <Heart size={24} />
               </div>
-              <h3 className="text-xl font-bold mb-3">Our Values</h3>
-              <p className="text-text-muted text-sm leading-relaxed">
-                <strong>Integrity, Excellence, Innovation, & Leadership.</strong> These core pillars guide our actions and define our community's character.
-              </p>
+              <h3 className="text-xl font-bold mb-3">Our Core Values</h3>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  'Excellence', 'Integrity', 'Discipline', 'Responsibility', 
+                  'Respect', 'Creativity', 'Innovation', 'Leadership', 
+                  'Teamwork', 'Lifelong Learning'
+                ].map((val, i) => (
+                  <span key={i} className="text-[10px] font-bold uppercase tracking-wider bg-white px-3 py-1 rounded-full text-primary border border-primary/10">
+                    {val}
+                  </span>
+                ))}
+              </div>
             </motion.div>
           </motion.div>
         </div>
