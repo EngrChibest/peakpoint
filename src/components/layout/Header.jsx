@@ -20,9 +20,9 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-5'}`}>
       <div className="container flex-between">
-        <Link to="/" className="flex-center gap-2">
-          <div className="w-12 h-12 flex-center">
-            <img src={logo} alt="PPIS Logo" className="w-full h-full object-contain" />
+        <Link to="/" className="flex items-center gap-2">
+          <div className="logo-container">
+            <img src={logo} alt="PPIS Logo" />
           </div>
           <div className={`flex flex-col font-baloo transition-colors duration-300 ${isScrolled ? 'text-primary' : 'text-secondary'}`}>
             <span className="font-bold text-xl tracking-tight leading-none whitespace-nowrap">PEAK POINT</span>

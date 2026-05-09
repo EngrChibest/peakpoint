@@ -10,8 +10,8 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center gap-2 mb-6">
-              <div className="w-16 h-16 flex-center">
-                <img src={logo} alt="PPIS Logo" className="w-full h-full object-contain" />
+              <div className="logo-container footer-logo-container">
+                <img src={logo} alt="PPIS Logo" />
               </div>
               <span className="font-bold text-xl tracking-tight font-baloo leading-tight">PEAK POINT INTERNATIONAL SCHOOLS</span>
             </Link>
