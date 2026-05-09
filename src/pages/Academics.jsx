@@ -1,9 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import InnerBanner from '../components/layout/InnerBanner';
-import { BookOpen, Target, Award, CheckCircle, Heart, Microscope, Users } from 'lucide-react';
+import { BookOpen, Target, Award, CheckCircle, Heart, Microscope, Users, Sparkles, GraduationCap } from 'lucide-react';
 import bannerImg from '../assets/banners/academics.png';
+import earlyYearsImg from '../assets/early_years.png';
+import nurseryImg from '../assets/nursery.png';
+import primaryImg from '../assets/primary.png';
+import juniorSecondaryImg from '../assets/junior_secondary.png';
+import seniorSecondaryImg from '../assets/senior_secondary.png';
 
 const Academics = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace('#', '');
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [location]);
+
   return (
     <div className="academics-page">
       <InnerBanner 
@@ -68,7 +86,7 @@ const Academics = () => {
       <section className="section">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl mb-6">Our Academic Arms</h2>
+            <h2 className="text-4xl mb-6">Academic Structure</h2>
             <p className="text-text-muted text-lg">
               Explore our specialized learning environments tailored for every stage of your child's growth.
             </p>
@@ -78,35 +96,52 @@ const Academics = () => {
             {[
               {
                 id: 'early-years',
-                title: 'Creche & Nursery',
-                subtitle: 'The Foundation of Wonder',
+                title: 'Early Years',
+                subtitle: 'Foundation of Growth',
                 icon: Heart,
-                iconColor: 'text-secondary',
-                desc: 'Our Early Years program (Creche to Nursery 2) utilizes a Montessori-inspired approach, focusing on sensory exploration and emotional security.',
-                subjects: ['Practical Life Skills', 'Sensory Development', 'Language & Phonics', 'Mathematical Concepts']
+                image: earlyYearsImg,
+                desc: 'Our Early Years program utilizes a Montessori-inspired approach, focusing on sensory exploration and emotional security in a nurturing environment.',
+                subjects: ['Practical Life Skills', 'Sensory Development', 'Physical Growth', 'Social Discovery']
+              },
+              {
+                id: 'nursery',
+                title: 'Nursery Section',
+                subtitle: 'Creative Exploration',
+                icon: Sparkles,
+                image: nurseryImg,
+                desc: 'A vibrant learning space where children (Nursery 1-2) begin their formal journey into literacy and numeracy through creative and interactive play.',
+                subjects: ['Basic Literacy', 'Numeracy Skills', 'Creative Arts', 'Language Development']
               },
               {
                 id: 'primary',
-                title: 'Primary School',
+                title: 'Primary Section',
                 subtitle: 'Nurturing Global Thinkers',
                 icon: BookOpen,
-                iconColor: 'text-primary',
-                desc: 'Our Primary division offers a robust blend of the British National Curriculum and the Nigerian Curriculum, emphasizing critical thinking.',
+                image: primaryImg,
+                desc: 'Our Primary division offers a robust blend of the British National Curriculum and the Nigerian Curriculum, emphasizing critical thinking and moral standards.',
                 subjects: ['English & Literacy', 'Mathematics', 'Science & ICT', 'Social Studies']
               },
               {
-                id: 'secondary',
-                title: 'Secondary School',
+                id: 'junior-secondary',
+                title: 'Junior Secondary Section',
                 subtitle: 'Shaping Future Leaders',
-                icon: Target,
-                iconColor: 'text-accent',
-                desc: 'Our Secondary program prepares students for global academic success (IGCSE, WAEC), transitioning them into independent scholars.',
-                subjects: ['Advanced Sciences', 'Further Mathematics', 'Business & Economics', 'Leadership Studies']
+                icon: Users,
+                image: juniorSecondaryImg,
+                desc: 'Transitioning students into independent scholars with a focus on leadership, innovation, and technological proficiency.',
+                subjects: ['Integrated Science', 'Business Studies', 'Basic Tech', 'Leadership Skills']
+              },
+              {
+                id: 'senior-secondary',
+                title: 'Senior Secondary Section',
+                subtitle: 'Academic Excellence',
+                icon: GraduationCap,
+                image: seniorSecondaryImg,
+                desc: 'Preparing students for global academic success (IGCSE, WAEC), focusing on advanced subjects and university readiness.',
+                subjects: ['Advanced Sciences', 'Further Mathematics', 'Economics', 'University Prep']
               }
             ].map((level, i) => {
-              const Icon = level.icon;
               return (
-                <div key={level.id} className="grid md:grid-cols-2 gap-12 items-center bg-white p-8 md:p-12 rounded-[2rem] border border-border/50 shadow-sm hover:shadow-md transition-all">
+                <div key={level.id} id={level.id} className="grid md:grid-cols-2 gap-12 items-center bg-white p-8 md:p-12 rounded-[2rem] border border-border/50 shadow-sm hover:shadow-md transition-all scroll-mt-24">
                   <div className={i % 2 === 1 ? 'md:order-2' : ''}>
                     <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-4 block">{level.subtitle}</span>
                     <h3 className="text-3xl mb-6">{level.title}</h3>
@@ -120,8 +155,8 @@ const Academics = () => {
                       ))}
                     </div>
                   </div>
-                  <div className={`bg-bg-soft rounded-3xl aspect-[4/3] flex-center ${i % 2 === 1 ? 'md:order-1' : ''}`}>
-                     <Icon size={100} className={`${level.iconColor} opacity-20`} />
+                  <div className={`rounded-3xl aspect-[4/3] overflow-hidden shadow-xl ${i % 2 === 1 ? 'md:order-1' : ''}`}>
+                    <img src={level.image} alt={level.title} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
                   </div>
                 </div>
               );

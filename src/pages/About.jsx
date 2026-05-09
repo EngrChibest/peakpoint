@@ -189,11 +189,12 @@ const About = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               { title: 'Conducive Environment', desc: 'A serene and learner-friendly atmosphere that supports academic focus and safety.' },
-              { title: 'Dedicated Teachers', desc: 'Qualified educators committed to personalized learner development and excellence.' },
-              { title: 'Strong Foundations', desc: 'A rigorous focus on moral and academic standards from the very first steps.' },
+              { title: 'Qualified Teachers', desc: 'Qualified educators committed to personalized learner development and excellence.' },
+              { title: 'Strong Foundation', desc: 'A rigorous focus on moral and academic standards from the very first steps.' },
               { title: 'Tech-Supported', desc: 'Integration of modern technology to enhance the learning experience and digital literacy.' },
               { title: 'Balanced Activities', desc: 'A perfect harmony between academic rigor and vibrant extracurricular programs.' },
-              { title: 'Future Leaders', desc: 'Intentional mentorship designed to nurture creativity, leadership, and social impact.' }
+              { title: 'Leadership & Creativity', desc: 'Intentional mentorship designed to nurture creativity, leadership, and social impact.' },
+              { title: 'Child-Centered', desc: 'Educational approach tailored to each child\'s unique potential and pace.' }
             ].map((item, i) => (
               <div key={i} className="flex gap-4">
                 <div className="mt-1"><Shield className="text-secondary" size={24} /></div>

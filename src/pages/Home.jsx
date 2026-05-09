@@ -46,11 +46,11 @@ const Home = () => {
     <div className="home-page">
       <Hero />
       
-      {/* Sections for Primary & Secondary School */}
-      <section className="section bg-bg-soft">
+      {/* Academic Structure Section */}
+      <section className="section bg-bg-soft" id="structure">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-4xl mb-4">Our Academic Divisions</h2>
+            <h2 className="text-4xl mb-4">Academic Structure</h2>
             <p className="text-text-muted text-lg">
               We offer a comprehensive educational journey from foundation to graduation, 
               tailored to each stage of your child's development.
@@ -58,64 +58,57 @@ const Home = () => {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Primary School Card */}
+            {/* Primary Division Card */}
             <div className="bg-white p-8 rounded-2xl shadow-md border hover:shadow-xl transition-all group">
               <div className="bg-secondary/10 w-16 h-16 flex-center rounded-xl mb-6 group-hover:scale-110 transition-transform">
                 <BookOpen className="text-secondary" size={32} />
               </div>
-              <h3 className="text-2xl mb-4">Primary School</h3>
+              <h3 className="text-2xl mb-4">Primary Division</h3>
               <p className="text-text-muted mb-6 leading-relaxed">
                 Nurturing young minds through a creative and engaging curriculum. 
-                Our primary division focuses on building a strong foundation in core subjects 
-                while encouraging curiosity and social growth.
+                Our primary division focuses on building a strong foundation in core subjects.
               </p>
               <ul className="flex flex-col gap-3 mb-8">
                 <li className="flex items-center gap-2 text-sm font-medium">
                   <div className="w-1.5 h-1.5 rounded-full bg-secondary"></div>
-                  Foundation to Year 6
+                  Early Years
                 </li>
                 <li className="flex items-center gap-2 text-sm font-medium">
                   <div className="w-1.5 h-1.5 rounded-full bg-secondary"></div>
-                  Inquiry-based Learning
+                  Nursery Section
                 </li>
                 <li className="flex items-center gap-2 text-sm font-medium">
                   <div className="w-1.5 h-1.5 rounded-full bg-secondary"></div>
-                  Creative Arts & Sports
+                  Primary Section
                 </li>
               </ul>
-              <button className="flex items-center gap-2 text-primary font-bold group-hover:gap-3 transition-all">
+              <Link to="/academics#primary" className="flex items-center gap-2 text-primary font-bold group-hover:gap-3 transition-all">
                 Learn More <ArrowRight size={18} />
-              </button>
+              </Link>
             </div>
 
-            {/* Secondary School Card */}
+            {/* Secondary Division Card */}
             <div className="bg-white p-8 rounded-2xl shadow-md border hover:shadow-xl transition-all group">
               <div className="bg-accent/10 w-16 h-16 flex-center rounded-xl mb-6 group-hover:scale-110 transition-transform">
                 <Target className="text-accent" size={32} />
               </div>
-              <h3 className="text-2xl mb-4">Secondary School</h3>
+              <h3 className="text-2xl mb-4">Secondary Division</h3>
               <p className="text-text-muted mb-6 leading-relaxed">
-                Preparing students for global success and university excellence. 
-                Our secondary program emphasizes critical thinking, leadership, 
-                and advanced academic rigor across all disciplines.
+                Preparing students for global success and university excellence through critical thinking and leadership.
               </p>
               <ul className="flex flex-col gap-3 mb-8">
                 <li className="flex items-center gap-2 text-sm font-medium">
                   <div className="w-1.5 h-1.5 rounded-full bg-accent"></div>
-                  Year 7 to Year 13
+                  Junior Secondary Section
                 </li>
                 <li className="flex items-center gap-2 text-sm font-medium">
                   <div className="w-1.5 h-1.5 rounded-full bg-accent"></div>
-                  IGCSE & A-Level Pathways
-                </li>
-                <li className="flex items-center gap-2 text-sm font-medium">
-                  <div className="w-1.5 h-1.5 rounded-full bg-accent"></div>
-                  University Placement Support
+                  Senior Secondary Section
                 </li>
               </ul>
-              <button className="flex items-center gap-2 text-primary font-bold group-hover:gap-3 transition-all">
+              <Link to="/academics#secondary" className="flex items-center gap-2 text-primary font-bold group-hover:gap-3 transition-all">
                 Learn More <ArrowRight size={18} />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -133,12 +126,13 @@ const Home = () => {
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 {[
-                  { title: 'Conducive Environment', desc: 'Serene and learner-friendly atmosphere.' },
-                  { title: 'Dedicated Teachers', desc: 'Qualified educators focused on student growth.' },
-                  { title: 'Moral Foundation', desc: 'Strong focus on character and academic standards.' },
-                  { title: 'Tech-Supported', desc: 'Modern technology integrated into learning.' },
-                  { title: 'Balanced Activities', desc: 'Harmony of academic and extracurricular life.' },
-                  { title: 'Leadership Focus', desc: 'Nurturing creativity and future leaders.' },
+                  { title: 'Conducive Environment', desc: 'A serene and learner-friendly atmosphere for focused growth.' },
+                  { title: 'Qualified Teachers', desc: 'Dedicated educators focused on personalized student development.' },
+                  { title: 'Strong Foundation', desc: 'Solid moral and academic standards from the start.' },
+                  { title: 'Tech-Supported', desc: 'Modern technology integrated into every aspect of learning.' },
+                  { title: 'Balanced Activities', desc: 'Harmony of rigorous academic and vibrant extracurricular life.' },
+                  { title: 'Leadership & Creativity', desc: 'Nurturing visionary leaders and creative thinkers.' },
+                  { title: 'Child-Centered', desc: 'Educational approach tailored to each child\'s unique potential.' },
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4">
                     <div className="bg-primary text-white p-3 rounded-lg h-fit flex-shrink-0">

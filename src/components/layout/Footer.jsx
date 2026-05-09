@@ -36,12 +36,13 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-white text-lg font-bold mb-6">Divisions</h4>
+            <h4 className="text-white text-lg font-bold mb-6 uppercase tracking-wider">Academic Structure</h4>
             <ul className="flex flex-col gap-4">
-              <li><a href="#" className="text-white/60 hover:text-secondary">Early Years</a></li>
-              <li><a href="#" className="text-white/60 hover:text-secondary">Primary School</a></li>
-              <li><a href="#" className="text-white/60 hover:text-secondary">Secondary School</a></li>
-              <li><a href="#" className="text-white/60 hover:text-secondary">A-Levels</a></li>
+              <li><Link to="/academics#early-years" className="text-white/60 hover:text-secondary transition-colors">Early Years</Link></li>
+              <li><Link to="/academics#nursery" className="text-white/60 hover:text-secondary transition-colors">Nursery Section</Link></li>
+              <li><Link to="/academics#primary" className="text-white/60 hover:text-secondary transition-colors">Primary Section</Link></li>
+              <li><Link to="/academics#junior-secondary" className="text-white/60 hover:text-secondary transition-colors">Junior Secondary Section</Link></li>
+              <li><Link to="/academics#senior-secondary" className="text-white/60 hover:text-secondary transition-colors">Senior Secondary Section</Link></li>
             </ul>
           </div>
 
