@@ -1,8 +1,9 @@
 import React from 'react';
 import InnerBanner from '../components/layout/InnerBanner';
-import { Target, Eye, Heart, Award, Shield, Music, BookOpen, Quote, Play, Pause } from 'lucide-react';
+import { Target, Eye, Heart, Award, Shield, Music, BookOpen, Quote, Play } from 'lucide-react';
 import { motion } from 'framer-motion';
-import chairmanImg from '../assets/chairman.png';
+import proprietressImg from '../assets/proprietress.png';
+import commitmentImg from '../assets/commitment.png';
 import bannerImg from '../assets/banners/about.png';
 
 const About = () => {
@@ -71,10 +72,8 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="relative"
             >
-              <div className="bg-bg-soft rounded-3xl p-1 aspect-square overflow-hidden shadow-xl relative z-10">
-                 <div className="w-full h-full bg-primary/5 flex-center border border-primary/10">
-                   <Award size={120} className="text-primary/20" />
-                 </div>
+              <div className="bg-bg-soft rounded-3xl overflow-hidden shadow-2xl relative z-10 aspect-square">
+                <img src={commitmentImg} alt="Our Commitment" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-secondary rounded-full mix-blend-multiply opacity-50 blur-3xl"></div>
             </motion.div>
@@ -82,22 +81,22 @@ const About = () => {
         </div>
       </section>
 
-      {/* Chairman's Message Section */}
+      {/* Proprietress Message Section */}
       <section className="section bg-bg-soft overflow-hidden">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div className="order-2 md:order-1 relative">
               <div className="aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl">
-                <img src={chairmanImg} alt="Chairman" className="w-full h-full object-cover" />
+                <img src={proprietressImg} alt="Proprietress" className="w-full h-full object-cover" />
               </div>
-              <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border-l-4 border-primary max-w-[240px]">
-                <p className="font-baloo font-bold text-primary text-xl leading-tight">Rev. Dr. Prince Chima Nnabugwu</p>
-                <p className="text-text-muted text-sm font-medium">Chairman / Founder</p>
+              <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border-l-4 border-primary max-w-[280px]">
+                <p className="font-baloo font-bold text-primary text-xl leading-tight">Prophetess Juliet Nnabugwu</p>
+                <p className="text-text-muted text-sm font-medium">Proprietress / Founder</p>
               </div>
             </div>
             <div className="order-1 md:order-2">
               <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-4 block">Leadership Message</span>
-              <h2 className="text-4xl mb-6">A Word from our Chairman</h2>
+              <h2 className="text-4xl mb-6">A Word from our Proprietress</h2>
               <div className="relative">
                 <Quote size={48} className="text-primary/10 absolute bottom-0 right-0 rotate-180" />
                 <div className="space-y-4 text-text-muted text-lg leading-relaxed relative z-10">
@@ -227,7 +226,12 @@ const About = () => {
                   <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
                     <h4 className="text-secondary uppercase text-sm font-bold tracking-widest mb-2">School Pledge</h4>
                     <p className="italic leading-relaxed text-lg">
-                      "I pledge to Peak Point International Schools, my alma mater, to be diligent in my studies, respectful to my mentors, and a light to my community. I will uphold the values of integrity and excellence in all my endeavors."
+                      "I pledge to Peak Point International School,<br/>
+                      To be diligent in my learning,<br/>
+                      Honest in my character,<br/>
+                      Respectful in my conduct,<br/>
+                      And excellent in all I do.<br/>
+                      So help me God."
                     </p>
                   </div>
                 </div>
@@ -242,20 +246,26 @@ const About = () => {
                 <div className="space-y-6 relative z-10">
                   <div className="flex-between items-center pb-6 border-b border-primary/10">
                     <div>
-                      <p className="font-bold text-lg">The Peak Point Hymn</p>
-                      <p className="text-sm text-text-muted">Standard Version</p>
+                      <p className="font-bold text-lg">The Peak Point Anthem</p>
                     </div>
                     <button className="w-12 h-12 bg-primary text-white rounded-full flex-center hover:scale-110 transition-transform shadow-lg">
                       <Play size={20} fill="white" />
                     </button>
                   </div>
-                  <div className="text-center font-medium italic space-y-4">
-                    <p>On the heights where wisdom glows,<br/>Peak Point's noble spirit grows.</p>
-                    <p>In our hearts and in our minds,<br/>Excellence is what we find.</p>
-                    <div className="text-primary font-bold not-italic pt-4">
-                      <p>(Chorus)</p>
-                      <p>Peak Point, Peak Point, our shining star,<br/>Leading us to where we are.</p>
-                      <p>With integrity and grace,<br/>We will take our rightful place.</p>
+                  <div className="text-center font-medium space-y-6">
+                    <div>
+                      <p className="font-bold text-secondary uppercase text-xs tracking-widest mb-2">Stanza 1</p>
+                      <p>At Peak Point School we learn and grow,<br/>With minds enlightened, hearts aglow.<br/>In truth and knowledge we are raised,<br/>To live with purpose, firm and brave.</p>
+                    </div>
+                    
+                    <div className="bg-primary/5 p-4 rounded-2xl border border-primary/5">
+                      <p className="font-bold text-primary uppercase text-xs tracking-widest mb-2">Chorus</p>
+                      <p className="font-bold text-lg text-primary">Peak Point! Peak Point!<br/>Excellence our guide,<br/>In learning, character, and strength,<br/>We rise with hope and pride.</p>
+                    </div>
+
+                    <div>
+                      <p className="font-bold text-secondary uppercase text-xs tracking-widest mb-2">Stanza 2</p>
+                      <p>With discipline and vision clear,<br/>We shape tomorrow starting here.<br/>Prepared to lead, prepared to stand,<br/>Peak Point learners across the land.</p>
                     </div>
                   </div>
                 </div>

@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
-import { ArrowRight, Play } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Play, X } from 'lucide-react';
 import heroImage from '../../assets/hero.png';
 
 const Hero = () => {
+  const [showVideo, setShowVideo] = useState(false);
+
   return (
     <section className="relative h-screen flex items-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -40,7 +42,10 @@ const Hero = () => {
                 <Link to="/apply" className="btn btn-secondary px-8 py-4 font-bold text-lg shadow-lg group">
                   Apply Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
-                <button className="btn bg-white/10 hover:bg-white/20 text-white px-8 py-4 text-lg border border-white/20 backdrop-blur-sm flex items-center gap-3">
+                <button 
+                  onClick={() => setShowVideo(true)}
+                  className="btn bg-white/10 hover:bg-white/20 text-white px-8 py-4 text-lg border border-white/20 backdrop-blur-sm flex items-center gap-3"
+                >
                   <div className="bg-white/20 p-2 rounded-full">
                     <Play size={16} fill="white" />
                   </div>
@@ -51,6 +56,41 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Video Modal Overlay */}
+      <AnimatePresence>
+        {showVideo && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex-center bg-primary/95 backdrop-blur-xl p-4 md:p-10"
+          >
+            <button 
+              onClick={() => setShowVideo(false)}
+              className="absolute top-6 right-6 text-white hover:text-secondary transition-colors z-[101]"
+            >
+              <X size={40} />
+            </button>
+            <motion.div 
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              className="relative w-full max-w-5xl aspect-video bg-black rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+            >
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" 
+                title="Peak Point School Advertisement" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                allowFullScreen
+              ></iframe>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };

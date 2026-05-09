@@ -137,14 +137,15 @@ const Admissions = () => {
                     </thead>
                     <tbody className="text-sm">
                       {[
-                        { level: 'Creche', age: '1–2 Years', req: 'Basic interview with parents' },
-                        { level: 'Nursery 1', age: '2–3 Years', req: 'Simple assessment' },
-                        { level: 'Nursery 2', age: '3–4 Years', req: 'Simple assessment' },
-                        { level: 'Kindergarten', age: '4–5 Years', req: 'Readiness assessment' },
-                        { level: 'Primary 1', age: '5–6 Years', req: 'Entrance assessment' },
-                        { level: 'Primary 2–5', age: 'Appropriate age', req: 'Previous school records' },
-                        { level: 'JSS 1', age: '10–12 Years', req: 'Entrance examination' },
-                        { level: 'JSS 2–SSS', age: 'Appropriate age', req: 'Transfer records & assessment' },
+                        { level: 'Creche', age: '3 Months – 18 Months', req: 'Parent interview and child care assessment' },
+                        { level: 'Preparatory', age: '18 Months – 3 Years', req: 'Basic readiness observation' },
+                        { level: 'Nursery 1', age: '3 – 4 Years', req: 'Simple interactive assessment' },
+                        { level: 'Nursery 2', age: '4 – 5 Years', req: 'Age-appropriate readiness assessment' },
+                        { level: 'Kindergarten', age: '5 – 6 Years', req: 'Basic literacy and numeracy readiness' },
+                        { level: 'Primary 1', age: '6 – 7 Years', req: 'Entrance assessment/interview' },
+                        { level: 'Primary 2 – Primary 5', age: 'Appropriate age placement', req: 'Previous academic records and assessment' },
+                        { level: 'JSS 1', age: '10 – 12 Years', req: 'Entrance examination/interview' },
+                        { level: 'JSS 2 – SSS Classes', age: 'Appropriate age placement', req: 'Transfer records and placement assessment' },
                       ].map((row, i) => (
                         <tr key={i} className="border-b border-border/50 hover:bg-secondary/5 transition-colors">
                           <td className="p-6 font-semibold">{row.level}</td>
@@ -228,7 +229,7 @@ const Admissions = () => {
                     <img src={logo} alt="Logo" className="w-full h-full object-contain brightness-0 invert" />
                  </div>
                  
-                 <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Join the Peak Point Family?</h2>
+                 <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Join the Peak Point Family?</h2>
                  <p className="text-white/70 mb-10 leading-relaxed max-w-md mx-auto">
                    We invite you to take the first step towards a bright future for your child. Visit us today or start your application online.
                  </p>

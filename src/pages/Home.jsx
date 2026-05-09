@@ -330,7 +330,7 @@ const Home = () => {
       <div className="container relative">
         <div className="absolute bottom-0 translate-y-1/2 right-4 md:right-10 z-10 bg-secondary p-8 rounded-2xl shadow-xl max-w-[200px] text-center">
           <div className="text-xl font-bold text-primary mb-1 uppercase tracking-tighter">Open for</div>
-          <div className="text-primary/70 text-xs font-bold uppercase tracking-wider">2024/2025 Admissions</div>
+          <div className="text-primary/70 text-xs font-bold uppercase tracking-wider">2026/2027 Admissions</div>
         </div>
       </div>
     </div>
