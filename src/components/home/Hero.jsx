@@ -17,42 +17,42 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-primary"></div>
       </div>
 
-      <div className="container hero-content">
-        <div className="max-w-2xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="inline-block py-1 px-4 rounded-full bg-secondary/20 text-secondary font-semibold text-sm tracking-wider uppercase mb-6 backdrop-blur-sm border border-secondary/30">
-              Welcome to Excellence
-            </span>
-            <h1 className="text-white text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1]">
-              Shaping Future <span className="text-secondary">Leaders</span> Today.
-            </h1>
-            <p className="text-white/80 text-lg md:text-xl mb-10 max-w-xl leading-relaxed">
-              Experience a world-class education at Peak Point International Schools. 
-              Raising Role Models with Excellence & Character.
-            </p>
-            
-            <div className="flex flex-wrap gap-4">
-              <Link to="/apply" className="btn btn-secondary px-8 py-4 font-bold text-lg shadow-lg group">
-                Apply Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-              <button className="btn bg-white/10 hover:bg-white/20 text-white px-8 py-4 text-lg border border-white/20 backdrop-blur-sm flex items-center gap-3">
-                <div className="bg-white/20 p-2 rounded-full">
-                  <Play size={16} fill="white" />
-                </div>
-                Watch Video
-              </button>
-            </div>
-          </motion.div>
+      <div className="container relative z-20 h-full flex flex-col justify-center pt-20">
+        <div className="flex-1 flex items-center">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+            >
+              <span className="inline-block py-1 px-4 rounded-full bg-secondary/20 text-secondary font-semibold text-sm tracking-wider uppercase mb-6 backdrop-blur-sm border border-secondary/30">
+                Welcome to Excellence
+              </span>
+              <h1 className="text-white text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1]">
+                Shaping Future <span className="text-secondary">Leaders</span> Today.
+              </h1>
+              <p className="text-white/80 text-lg md:text-xl mb-10 max-w-xl leading-relaxed">
+                Experience a world-class education at Peak Point International Schools. 
+                Raising Role Models with Excellence & Character.
+              </p>
+              
+              <div className="flex flex-wrap gap-4">
+                <Link to="/apply" className="btn btn-secondary px-8 py-4 font-bold text-lg shadow-lg group">
+                  Apply Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+                <button className="btn bg-white/10 hover:bg-white/20 text-white px-8 py-4 text-lg border border-white/20 backdrop-blur-sm flex items-center gap-3">
+                  <div className="bg-white/20 p-2 rounded-full">
+                    <Play size={16} fill="white" />
+                  </div>
+                  Watch Video
+                </button>
+              </div>
+            </motion.div>
+          </div>
         </div>
-      </div>
 
-      {/* Floating Stats */}
-      <div className="absolute bottom-10 left-0 right-0 z-10 hidden md:block">
-        <div className="container">
+        {/* Floating Stats - Now inside flex container for better spacing */}
+        <div className="hidden md:block pb-10">
           <motion.div 
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
