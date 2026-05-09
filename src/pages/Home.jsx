@@ -21,16 +21,10 @@ const Home = () => {
       initials: "MA"
     },
     {
-      text: "Peak Point provided me with the solid foundation I needed to excel at the university level. The supportive environment made all the difference.",
-      author: "Chisom O.",
-      role: "Alumni, Class of 2023",
-      initials: "CO"
-    },
-    {
-      text: "We love the focus on not just academics, but character development. It's truly a place that raises role models.",
-      author: "Mr. & Mrs. Johnson",
-      role: "Parents",
-      initials: "MJ"
+      text: "We are committed to providing a world-class education that balances academic excellence with deep-rooted character development.",
+      author: "School Leadership",
+      role: "Board of Governors",
+      initials: "BG"
     }
   ];
 
@@ -335,8 +329,8 @@ const Home = () => {
       {/* Floating Card over Footer */}
       <div className="container relative">
         <div className="absolute bottom-0 translate-y-1/2 right-4 md:right-10 z-10 bg-secondary p-8 rounded-2xl shadow-xl max-w-[200px] text-center">
-          <div className="text-4xl font-bold text-primary mb-1">100%</div>
-          <div className="text-primary/70 text-xs font-bold uppercase tracking-wider">University Acceptance</div>
+          <div className="text-xl font-bold text-primary mb-1 uppercase tracking-tighter">Open for</div>
+          <div className="text-primary/70 text-xs font-bold uppercase tracking-wider">2024/2025 Admissions</div>
         </div>
       </div>
     </div>

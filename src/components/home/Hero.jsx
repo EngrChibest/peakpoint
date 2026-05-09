@@ -17,8 +17,8 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-primary"></div>
       </div>
 
-      <div className="container relative z-20 h-full flex flex-col justify-center pt-20">
-        <div className="flex-1 flex items-center">
+      <div className="container relative z-20 h-full flex flex-col justify-center">
+        <div className="flex items-center">
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -49,28 +49,6 @@ const Hero = () => {
               </div>
             </motion.div>
           </div>
-        </div>
-
-        {/* Floating Stats - Now inside flex container for better spacing */}
-        <div className="hidden md:block pb-10">
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.5 }}
-            className="grid md:grid-cols-4 gap-8 bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20"
-          >
-            {[
-              { label: 'Students', value: '1,200+' },
-              { label: 'Success Rate', value: '99%' },
-              { label: 'Expert Teachers', value: '85+' },
-              { label: 'Award Winning', value: '15+' },
-            ].map((stat, i) => (
-              <div key={i} className="text-center border-r border-white/10 last:border-0">
-                <div className="text-white text-3xl font-bold mb-1">{stat.value}</div>
-                <div className="text-white/60 text-sm font-medium uppercase tracking-wider">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
         </div>
       </div>
     </section>
