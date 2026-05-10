@@ -9,6 +9,8 @@ import primaryImg from '../assets/primary.png';
 import juniorSecondaryImg from '../assets/junior_secondary.png';
 import seniorSecondaryImg from '../assets/senior_secondary.png';
 
+import academicCareImg from '../assets/academic_care.png';
+
 const Academics = () => {
   const location = useLocation();
 
@@ -68,11 +70,16 @@ const Academics = () => {
             
             <div className="relative">
               <div className="aspect-square rounded-3xl overflow-hidden shadow-2xl relative z-10">
-                <div className="w-full h-full bg-primary flex-center text-white p-16 text-center">
-                   <div>
-                    <h3 className="text-3xl font-baloo font-bold mb-4">Total Academic Care</h3>
-                    <p className="text-white/80 leading-relaxed italic">"We focus on the child, not just the grade. Every level is a step towards a more confident, capable, and compassionate human being."</p>
-                   </div>
+                <div className="w-full h-full relative group">
+                  <img src={academicCareImg} alt="Total Academic Care" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-primary/80 backdrop-blur-[2px] flex-center p-12 md:p-16 text-center">
+                    <div>
+                      <h3 className="text-3xl font-baloo font-bold mb-4 text-white">Total Academic Care</h3>
+                      <p className="text-white/90 leading-relaxed italic text-lg">
+                        "We focus on the child, not just the grade. Every level is a step towards a more confident, capable, and compassionate human being."
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div className="absolute -top-6 -right-6 w-32 h-32 bg-secondary rounded-full blur-3xl opacity-30"></div>
