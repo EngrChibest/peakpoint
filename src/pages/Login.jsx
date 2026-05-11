@@ -1,12 +1,19 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Lock, User, ShieldCheck, ArrowLeft, Eye, EyeOff } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../assets/logo.png';
 
 const Login = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const [role, setRole] = useState('student'); // student, teacher, admin
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    // In a real app, this would involve authentication
+    navigate(`/portal/${role}`);
+  };
 
   return (
     <div className="min-h-screen bg-bg-soft flex items-center justify-center p-6 relative overflow-hidden">
@@ -49,7 +56,7 @@ const Login = () => {
               ))}
             </div>
 
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleLogin}>
               <div className="space-y-2">
                 <label className="text-sm font-bold text-primary flex items-center gap-2">
                   <Mail size={16} /> Email or Portal ID
@@ -86,11 +93,11 @@ const Login = () => {
 
               <div className="flex items-center gap-3">
                 <input type="checkbox" id="remember" className="w-4 h-4 rounded border-border text-primary focus:ring-primary" />
-                <label htmlFor="remember" className="text-sm text-text-muted font-medium cursor-pointer">Remember me for 30 days</label>
+                <label htmlFor="remember" className="text-sm text-text-muted font-medium cursor-pointer">Remember me</label>
               </div>
 
-              <button className="w-full btn btn-primary py-4 text-lg shadow-xl shadow-primary/20 flex items-center justify-center gap-3">
-                Log In to Dashboard <ShieldCheck size={20} />
+              <button type="submit" className="w-full btn btn-primary py-4 text-lg shadow-xl shadow-primary/20 flex items-center justify-center gap-3">
+                Log In <ShieldCheck size={20} />
               </button>
             </form>
 

@@ -17,6 +17,10 @@ import News from './pages/News';
 import Login from './pages/Login';
 import Apply from './pages/Apply';
 
+import StudentDashboard from './pages/portal/StudentDashboard';
+import TeacherDashboard from './pages/portal/TeacherDashboard';
+import AdminDashboard from './pages/portal/AdminDashboard';
+
 const ScrollToTop = () => {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -43,10 +47,12 @@ const FloatingCTA = () => {
 function AppContent() {
   const location = useLocation();
   const isLoginPage = location.pathname === '/login';
+  const isPortalPage = location.pathname.startsWith('/portal');
+  const hideLayout = isLoginPage || isPortalPage;
 
   return (
     <div className="app">
-      {!isLoginPage && <Header />}
+      {!hideLayout && <Header />}
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -59,11 +65,16 @@ function AppContent() {
           <Route path="/news" element={<News />} />
           <Route path="/login" element={<Login />} />
           <Route path="/apply" element={<Apply />} />
+
+          {/* Portal Routes */}
+          <Route path="/portal/student" element={<StudentDashboard />} />
+          <Route path="/portal/teacher" element={<TeacherDashboard />} />
+          <Route path="/portal/admin" element={<AdminDashboard />} />
         </Routes>
       </main>
-      {!isLoginPage && <Footer />}
+      {!hideLayout && <Footer />}
       <BookingModal />
-      {!isLoginPage && <FloatingCTA />}
+      {!hideLayout && <FloatingCTA />}
     </div>
   );
 }
