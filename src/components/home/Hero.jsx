@@ -20,31 +20,31 @@ const Hero = () => {
       </div>
 
       <div className="container relative z-20 h-full flex flex-col justify-center">
-        <div className="flex items-center">
+        <div className="flex items-center justify-center md:justify-start text-center md:text-left">
           <div className="max-w-2xl">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="inline-block py-1 px-4 rounded-full bg-secondary/20 text-secondary font-semibold text-sm tracking-wider uppercase mb-6 backdrop-blur-sm border border-secondary/30">
+              <span className="inline-block py-1.5 px-5 rounded-full bg-secondary/20 text-secondary font-bold text-[10px] md:text-sm tracking-[0.2em] uppercase mb-6 backdrop-blur-md border border-secondary/30 shadow-lg">
                 Welcome to Excellence
               </span>
-              <h1 className="text-white text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1]">
+              <h1 className="text-white text-4xl sm:text-5xl md:text-7xl font-extrabold mb-6 leading-[1.1] tracking-tight">
                 Shaping Future <span className="text-secondary">Leaders</span> Today.
               </h1>
-              <p className="text-white/80 text-lg md:text-xl mb-10 max-w-xl leading-relaxed">
+              <p className="text-white/80 text-base md:text-xl mb-10 max-w-xl mx-auto md:mx-0 leading-relaxed font-medium">
                 Experience a world-class education at Peak Point International Schools.
-                <br /><b>"Raising Role Models with Excellence & Character."</b>
+                <br /><b className="text-secondary/90 italic">"Raising Role Models with Excellence & Character."</b>
               </p>
 
-              <div className="flex flex-wrap gap-4">
-                <Link to="/apply" className="btn btn-secondary px-8 py-4 font-bold text-lg shadow-lg group">
+              <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                <Link to="/apply" className="btn btn-secondary px-8 py-4 font-bold text-base md:text-lg shadow-xl shadow-secondary/10 group">
                   Apply Now <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <button
                   onClick={() => setShowVideo(true)}
-                  className="btn bg-white/10 hover:bg-white/20 text-white px-8 py-4 text-lg border border-white/20 backdrop-blur-sm flex items-center gap-3"
+                  className="btn bg-white/10 hover:bg-white/20 text-white px-8 py-4 text-base md:text-lg border border-white/20 backdrop-blur-md flex items-center gap-3 transition-all"
                 >
                   <div className="bg-white/20 p-2 rounded-full">
                     <Play size={16} fill="white" />

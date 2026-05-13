@@ -49,9 +49,9 @@ const Home = () => {
       {/* Academic Structure Section */}
       <section className="section bg-bg-soft" id="structure">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <h2 className="text-4xl mb-4">Academic Structure</h2>
-            <p className="text-text-muted text-lg">
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
+            <h2 className="text-3xl md:text-4xl mb-4">Academic Structure</h2>
+            <p className="text-text-muted text-base md:text-lg">
               We offer a comprehensive educational journey from foundation to graduation, 
               tailored to each stage of your child's development.
             </p>
@@ -118,9 +118,9 @@ const Home = () => {
       <section className="section">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="text-4xl mb-6">Why Choose Peak Point?</h2>
-              <p className="text-text-muted text-lg mb-8 leading-relaxed">
+            <div className="text-center md:text-left">
+              <h2 className="text-3xl md:text-4xl mb-6">Why Choose Peak Point?</h2>
+              <p className="text-text-muted text-base md:text-lg mb-8 leading-relaxed">
                 Peak Point International Schools is committed to academic excellence, character development, and innovation. We provide a conducive environment where learners are empowered to succeed academically and socially.
               </p>
               
@@ -167,12 +167,12 @@ const Home = () => {
         </div>
 
         <div className="container relative z-10 h-full flex flex-col justify-center">
-          <div className="text-center max-w-2xl mx-auto mb-16">
-            <span className="text-secondary border border-secondary/30 font-bold uppercase tracking-widest text-sm mb-6 inline-block px-4 py-1 rounded-full shadow-lg">
+          <div className="text-center max-w-2xl mx-auto mb-10 md:mb-16">
+            <span className="text-secondary border border-secondary/30 font-bold uppercase tracking-widest text-[10px] md:text-sm mb-6 inline-block px-4 py-1 rounded-full shadow-lg">
               Testimonial
             </span>
-            <h2 className="text-4xl mb-4 text-white">What Our Community Says</h2>
-            <p className="text-white/80 text-lg">
+            <h2 className="text-3xl md:text-4xl mb-4 text-white">What Our Community Says</h2>
+            <p className="text-white/80 text-base md:text-lg">
               Hear from our students and parents about their experiences at Peak Point International Schools.
             </p>
           </div>
@@ -238,12 +238,12 @@ const Home = () => {
       {/* News & Upcoming Activities Section */}
       <section className="section">
         <div className="container">
-          <div className="flex-between mb-12 flex-wrap gap-4">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-12 gap-6 text-center md:text-left">
             <div>
-              <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-4 block">Stay Updated</span>
-              <h2 className="text-4xl">News & Upcoming Activities</h2>
+              <span className="text-secondary font-bold uppercase tracking-widest text-xs md:text-sm mb-4 block">Stay Updated</span>
+              <h2 className="text-3xl md:text-4xl">News & Activities</h2>
             </div>
-            <Link to="/news" className="btn btn-outline">View All Events</Link>
+            <Link to="/news" className="btn btn-outline mx-auto md:mx-0">View All Events</Link>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
