@@ -1,17 +1,80 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { User, Phone, Mail, MapPin, GraduationCap, Calendar, Clock, CheckCircle, ArrowRight, Upload, Info } from 'lucide-react';
+import { 
+  User, 
+  Phone, 
+  Mail, 
+  MapPin, 
+  GraduationCap, 
+  Calendar, 
+  Clock, 
+  CheckCircle, 
+  ArrowRight, 
+  Upload, 
+  Info,
+  Loader2
+} from 'lucide-react';
 import InnerBanner from '../components/layout/InnerBanner';
 import applyBanner from '../assets/banners/apply.png';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
+
+import { useNotifications } from '../context/NotificationContext';
+import { useToast } from '../context/ToastContext';
 
 const Apply = () => {
+  const { notifyAdmins } = useNotifications();
+  const { showToast } = useToast();
   const [formStep, setFormStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e) => {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    dob: '',
+    gender: '',
+    grade: '',
+    parentName: '',
+    parentRelation: '',
+    parentPhone: '',
+    parentEmail: '',
+    address: '',
+    previousSchool: '',
+    lastGrade: '',
+    reasonForLeaving: '',
+    status: 'pending'
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitted(true);
-    window.scrollTo(0, 0);
+    setLoading(true);
+    try {
+      const fullName = `${formData.firstName} ${formData.lastName}`;
+      await addDoc(collection(db, 'applications'), {
+        ...formData,
+        fullName,
+        createdAt: serverTimestamp(),
+      });
+
+      // Notify admins
+      await notifyAdmins(
+        `New Student Application: ${fullName} (${formData.grade})`,
+        'info',
+        '/portal/admin/applications'
+      );
+
+      setIsSubmitted(true);
+      window.scrollTo(0, 0);
+    } catch (err) {
+      showToast("Error submitting application: " + err.message, "error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const nextStep = () => setFormStep(prev => prev + 1);
@@ -92,46 +155,46 @@ const Apply = () => {
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-text-muted">First Name</label>
-                    <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Enter first name" />
+                    <label htmlFor="student-firstName" className="text-sm font-bold text-text-muted">First Name</label>
+                    <input id="student-firstName" type="text" name="firstName" required value={formData.firstName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Enter first name" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-text-muted">Last Name</label>
-                    <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Enter last name" />
+                    <label htmlFor="student-lastName" className="text-sm font-bold text-text-muted">Last Name</label>
+                    <input id="student-lastName" type="text" name="lastName" required value={formData.lastName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Enter last name" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-text-muted">Date of Birth</label>
-                    <input type="date" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" />
+                    <label htmlFor="student-dob" className="text-sm font-bold text-text-muted">Date of Birth</label>
+                    <input id="student-dob" type="date" name="dob" required value={formData.dob} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-text-muted">Gender</label>
-                    <select required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft">
+                    <label htmlFor="student-gender" className="text-sm font-bold text-text-muted">Gender</label>
+                    <select id="student-gender" name="gender" required value={formData.gender} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft">
                       <option value="">Select Gender</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                     </select>
                   </div>
                   <div className="space-y-2 md:col-span-2">
-                    <label className="text-sm font-bold text-text-muted">Grade/Class Applying For</label>
-                    <select required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft">
+                    <label htmlFor="student-grade" className="text-sm font-bold text-text-muted">Grade/Class Applying For</label>
+                    <select id="student-grade" name="grade" required value={formData.grade} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft">
                       <option value="">Select Class</option>
                       <optgroup label="Primary School">
-                        <option value="nursery">Nursery</option>
-                        <option value="reception">Reception</option>
-                        <option value="year1">Year 1</option>
-                        <option value="year2">Year 2</option>
-                        <option value="year3">Year 3</option>
-                        <option value="year4">Year 4</option>
-                        <option value="year5">Year 5</option>
-                        <option value="year6">Year 6</option>
+                        <option value="Nursery">Nursery</option>
+                        <option value="Reception">Reception</option>
+                        <option value="Year 1">Year 1</option>
+                        <option value="Year 2">Year 2</option>
+                        <option value="Year 3">Year 3</option>
+                        <option value="Year 4">Year 4</option>
+                        <option value="Year 5">Year 5</option>
+                        <option value="Year 6">Year 6</option>
                       </optgroup>
                       <optgroup label="Secondary School">
-                        <option value="js1">JS 1 (Year 7)</option>
-                        <option value="js2">JS 2 (Year 8)</option>
-                        <option value="js3">JS 3 (Year 9)</option>
-                        <option value="ss1">SS 1 (Year 10)</option>
-                        <option value="ss2">SS 2 (Year 11)</option>
-                        <option value="ss3">SS 3 (Year 12)</option>
+                        <option value="JSS 1">JSS 1 (Year 7)</option>
+                        <option value="JSS 2">JSS 2 (Year 8)</option>
+                        <option value="JSS 3">JSS 3 (Year 9)</option>
+                        <option value="SS 1">SS 1 (Year 10)</option>
+                        <option value="SS 2">SS 2 (Year 11)</option>
+                        <option value="SS 3">SS 3 (Year 12)</option>
                       </optgroup>
                     </select>
                   </div>
@@ -151,24 +214,24 @@ const Apply = () => {
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-text-muted">Full Name</label>
-                    <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Full name of parent" />
+                    <label htmlFor="parent-fullName" className="text-sm font-bold text-text-muted">Full Name</label>
+                    <input id="parent-fullName" type="text" name="parentName" required value={formData.parentName} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Full name of parent" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-text-muted">Relationship to Student</label>
-                    <input type="text" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="e.g. Father, Mother, Guardian" />
+                    <label htmlFor="parent-relation" className="text-sm font-bold text-text-muted">Relationship to Student</label>
+                    <input id="parent-relation" type="text" name="parentRelation" required value={formData.parentRelation} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="e.g. Father, Mother, Guardian" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-text-muted">Phone Number</label>
-                    <input type="tel" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Enter phone number" />
+                    <label htmlFor="parent-phone" className="text-sm font-bold text-text-muted">Phone Number</label>
+                    <input id="parent-phone" type="tel" name="parentPhone" required value={formData.parentPhone} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Enter phone number" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-text-muted">Email Address</label>
-                    <input type="email" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Enter email address" />
+                    <label htmlFor="parent-email" className="text-sm font-bold text-text-muted">Email Address</label>
+                    <input id="parent-email" type="email" name="parentEmail" required value={formData.parentEmail} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Enter email address" />
                   </div>
                   <div className="space-y-2 md:col-span-2">
-                    <label className="text-sm font-bold text-text-muted">Residential Address</label>
-                    <textarea rows="3" required className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Enter full residential address"></textarea>
+                    <label htmlFor="parent-address" className="text-sm font-bold text-text-muted">Residential Address</label>
+                    <textarea id="parent-address" rows="3" name="address" required value={formData.address} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Enter full residential address"></textarea>
                   </div>
                 </div>
                 <div className="mt-10 flex justify-between">
@@ -187,36 +250,28 @@ const Apply = () => {
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2 md:col-span-2">
-                    <label className="text-sm font-bold text-text-muted">Previous School Attended</label>
-                    <input type="text" className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Name of last school" />
+                    <label htmlFor="history-previousSchool" className="text-sm font-bold text-text-muted">Previous School Attended</label>
+                    <input id="history-previousSchool" type="text" name="previousSchool" value={formData.previousSchool} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Name of last school" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-text-muted">Last Grade Completed</label>
-                    <input type="text" className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="e.g. Year 3" />
+                    <label htmlFor="history-lastGrade" className="text-sm font-bold text-text-muted">Last Grade Completed</label>
+                    <input id="history-lastGrade" type="text" name="lastGrade" value={formData.lastGrade} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="e.g. Year 3" />
                   </div>
                   <div className="space-y-2">
-                    <label className="text-sm font-bold text-text-muted">Reason for Leaving</label>
-                    <input type="text" className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Brief reason" />
+                    <label htmlFor="history-reasonForLeaving" className="text-sm font-bold text-text-muted">Reason for Leaving</label>
+                    <input id="history-reasonForLeaving" type="text" name="reasonForLeaving" value={formData.reasonForLeaving} onChange={handleChange} className="w-full px-4 py-3 rounded-xl border border-border focus:border-primary outline-none transition-all bg-bg-soft" placeholder="Brief reason" />
                   </div>
                   
-                  <div className="md:col-span-2 mt-4">
-                    <label className="text-sm font-bold text-text-muted mb-4 block">Document Uploads (Scanned Copies)</label>
-                    <div className="grid md:grid-cols-2 gap-4">
-                      <div className="border-2 border-dashed border-border rounded-2xl p-6 text-center hover:border-primary transition-colors cursor-pointer group">
-                        <Upload className="mx-auto mb-2 text-text-muted group-hover:text-primary" />
-                        <span className="text-xs font-bold text-text-muted uppercase">Birth Certificate</span>
-                      </div>
-                      <div className="border-2 border-dashed border-border rounded-2xl p-6 text-center hover:border-primary transition-colors cursor-pointer group">
-                        <Upload className="mx-auto mb-2 text-text-muted group-hover:text-primary" />
-                        <span className="text-xs font-bold text-text-muted uppercase">Recent School Result</span>
-                      </div>
-                    </div>
+                  <div className="md:col-span-2 mt-4 text-center p-8 bg-bg-soft border-2 border-dashed border-border rounded-2xl">
+                    <Upload className="mx-auto mb-4 text-primary" size={32} />
+                    <p className="text-sm font-bold text-primary mb-1">Documentation Requirement</p>
+                    <p className="text-xs text-text-muted">Please bring original Birth Certificate and last School Results during your entrance interview.</p>
                   </div>
                 </div>
                 <div className="mt-10 flex justify-between">
                   <button type="button" onClick={prevStep} className="btn border border-primary text-primary px-8">Back</button>
-                  <button type="submit" className="btn btn-secondary px-12 py-4 shadow-lg text-lg">
-                    Submit Application
+                  <button type="submit" disabled={loading} className="btn btn-secondary px-12 py-4 shadow-lg text-lg flex items-center gap-3">
+                    {loading ? <Loader2 className="animate-spin" /> : 'Submit Application'}
                   </button>
                 </div>
               </motion.div>

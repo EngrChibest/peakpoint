@@ -1,11 +1,24 @@
 import React, { useState } from 'react';
 import InnerBanner from '../components/layout/InnerBanner';
-import { Mail, Phone, MapPin, Clock, Send, ChevronDown } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, ChevronDown, CheckCircle, Loader2 } from 'lucide-react';
 import bannerImg from '../assets/banners/contact.png';
 import { motion, AnimatePresence } from 'framer-motion';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { db } from '../firebase';
+
+import { useNotifications } from '../context/NotificationContext';
 
 const Contact = () => {
+  const { notifyAdmins } = useNotifications();
   const [openFaq, setOpenFaq] = useState(null);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
   const faqs = [
     { q: "What classes are available?", a: "Peak Point International Schools offers educational services across approved nursery, primary, and secondary levels." },
@@ -15,6 +28,32 @@ const Contact = () => {
     { q: "How can parents contact the school?", a: "Parents can contact the school through the official phone numbers, email, or school office." },
     { q: "Does the school emphasize moral and character development?", a: "Yes. Character formation, discipline, leadership, and moral values are part of the school’s educational philosophy." }
   ];
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await addDoc(collection(db, 'inquiries'), {
+        ...formData,
+        status: 'unread',
+        createdAt: serverTimestamp()
+      });
+      
+      // Notify admins
+      await notifyAdmins(
+        `New Inquiry: ${formData.subject} from ${formData.name}`,
+        'info',
+        '/portal/admin/inquiries'
+      );
+
+      setIsSubmitted(true);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (err) {
+      alert("Error: " + err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <div className="contact-page">
@@ -93,27 +132,38 @@ const Contact = () => {
             {/* Contact Form */}
             <div className="bg-white p-10 rounded-3xl shadow-lg border">
               <h3 className="text-2xl mb-6">Send Us a Message</h3>
-              <form className="grid grid-cols-1 gap-6">
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-bold text-primary">Your Name</label>
-                  <input type="text" placeholder="John Doe" className="bg-bg-soft border border-border p-4 rounded-xl outline-none focus:border-primary transition-all" />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-bold text-primary">Email Address</label>
-                  <input type="email" placeholder="john@example.com" className="bg-bg-soft border border-border p-4 rounded-xl outline-none focus:border-primary transition-all" />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-bold text-primary">Subject</label>
-                  <input type="text" placeholder="Admission Inquiry" className="bg-bg-soft border border-border p-4 rounded-xl outline-none focus:border-primary transition-all" />
-                </div>
-                <div className="flex flex-col gap-2">
-                  <label className="text-sm font-bold text-primary">Message</label>
-                  <textarea rows="4" placeholder="Your message here..." className="bg-bg-soft border border-border p-4 rounded-xl outline-none focus:border-primary transition-all resize-none"></textarea>
-                </div>
-                <button type="button" className="btn btn-primary py-4 flex items-center justify-center gap-3">
-                  Send Message <Send size={18} />
-                </button>
-              </form>
+              
+              {isSubmitted ? (
+                <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-10">
+                  <CheckCircle className="text-green-500 mx-auto mb-4" size={64} />
+                  <h4 className="text-xl font-bold text-primary mb-2">Message Sent!</h4>
+                  <p className="text-text-muted mb-6">We have received your inquiry and will get back to you shortly.</p>
+                  <button onClick={() => setIsSubmitted(false)} className="text-primary font-bold hover:underline">Send another message</button>
+                </motion.div>
+              ) : (
+                <form className="grid grid-cols-1 gap-6" onSubmit={handleSubmit}>
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="contact-name" className="text-sm font-bold text-primary">Your Name</label>
+                    <input id="contact-name" name="name" required type="text" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} placeholder="John Doe" className="bg-bg-soft border border-border p-4 rounded-xl outline-none focus:border-primary transition-all" />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="contact-email" className="text-sm font-bold text-primary">Email Address</label>
+                    <input id="contact-email" name="email" required type="email" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} placeholder="john@example.com" className="bg-bg-soft border border-border p-4 rounded-xl outline-none focus:border-primary transition-all" />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="contact-subject" className="text-sm font-bold text-primary">Subject</label>
+                    <input id="contact-subject" name="subject" required type="text" value={formData.subject} onChange={(e) => setFormData({...formData, subject: e.target.value})} placeholder="Admission Inquiry" className="bg-bg-soft border border-border p-4 rounded-xl outline-none focus:border-primary transition-all" />
+                  </div>
+                  <div className="flex flex-col gap-2">
+                    <label htmlFor="contact-message" className="text-sm font-bold text-primary">Message</label>
+                    <textarea id="contact-message" name="message" required rows="4" value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} placeholder="Your message here..." className="bg-bg-soft border border-border p-4 rounded-xl outline-none focus:border-primary transition-all resize-none"></textarea>
+                  </div>
+                  <button type="submit" disabled={loading} className="btn btn-primary py-4 flex items-center justify-center gap-3">
+                    {loading ? <Loader2 className="animate-spin" /> : <Send size={18} />}
+                    {loading ? 'Sending...' : 'Send Message'}
+                  </button>
+                </form>
+              )}
             </div>
 
             {/* FAQ Column */}

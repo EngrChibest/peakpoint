@@ -27,17 +27,17 @@ const About = () => {
 
   return (
     <div className="about-page">
-      <InnerBanner 
-        title="About Our School" 
+      <InnerBanner
+        title="About Our School"
         subtitle="A legacy of excellence, innovation, and community at Peak Point International Schools."
         image={bannerImg}
       />
-      
+
       {/* Our Story Section */}
       <section className="section">
         <div className="container">
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
@@ -46,15 +46,15 @@ const About = () => {
               <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-4 block">Our Commitment</span>
               <h2 className="text-4xl mb-6">Excellence in Every Step</h2>
               <p className="text-text-muted text-lg mb-6 leading-relaxed">
-                Peak Point International Schools is committed to academic excellence, character development, innovation, and holistic learner growth. 
+                Peak Point International Schools is committed to academic excellence, character development, innovation, and holistic learner growth.
                 The school provides a conducive and engaging environment where learners are empowered to succeed academically and socially.
               </p>
-              
+
               <div className="mt-10">
                 <h4 className="text-primary font-bold mb-4 uppercase tracking-wider text-sm">Academic Structure</h4>
                 <div className="grid grid-cols-2 gap-4">
                   {[
-                    'Early Years', 'Nursery Section', 'Primary Section', 
+                    'Early Years', 'Nursery Section', 'Primary Section',
                     'Junior Secondary', 'Senior Secondary'
                   ].map((level, i) => (
                     <div key={i} className="flex items-center gap-2 text-text-muted">
@@ -65,7 +65,7 @@ const About = () => {
                 </div>
               </div>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
@@ -91,7 +91,7 @@ const About = () => {
               </div>
               <div className="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-xl border-l-4 border-primary max-w-[280px]">
                 <p className="font-baloo font-bold text-primary text-xl leading-tight">Prophetess Juliet Nnabugwu</p>
-                <p className="text-text-muted text-sm font-medium">Proprietress / Founder</p>
+                <p className="text-text-muted text-sm font-medium">Proprietress</p>
               </div>
             </div>
             <div className="order-1 md:order-2">
@@ -119,7 +119,7 @@ const About = () => {
       {/* Mission, Vision, Values, Philosophy Section */}
       <section className="section bg-white">
         <div className="container">
-          <motion.div 
+          <motion.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
@@ -135,7 +135,7 @@ const About = () => {
                 To provide quality, child-centered, and value-driven education that nurtures academic excellence, leadership, creativity, discipline, and lifelong learning.
               </p>
             </motion.div>
-            
+
             <motion.div variants={itemVariants} className="bg-bg-soft p-8 rounded-[2rem] border border-border/50 hover:shadow-xl transition-all group">
               <div className="bg-secondary text-primary p-3 rounded-xl w-fit mb-6 group-hover:scale-110 transition-transform">
                 <Eye size={24} />
@@ -163,8 +163,8 @@ const About = () => {
               <h3 className="text-xl font-bold mb-3">Our Core Values</h3>
               <div className="flex flex-wrap gap-2">
                 {[
-                  'Excellence', 'Integrity', 'Discipline', 'Responsibility', 
-                  'Respect', 'Creativity', 'Innovation', 'Leadership', 
+                  'Excellence', 'Integrity', 'Discipline', 'Responsibility',
+                  'Respect', 'Creativity', 'Innovation', 'Leadership',
                   'Teamwork', 'Lifelong Learning'
                 ].map((val, i) => (
                   <span key={i} className="text-[10px] font-bold uppercase tracking-wider bg-white px-3 py-1 rounded-full text-primary border border-primary/10">
@@ -212,7 +212,7 @@ const About = () => {
       <section className="section bg-primary text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-96 h-96 bg-accent opacity-20 blur-3xl -mr-48 -mt-48"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-secondary opacity-10 blur-3xl -ml-48 -mb-48"></div>
-        
+
         <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-16">
             <div>
@@ -227,18 +227,18 @@ const About = () => {
                   <div className="bg-white/10 backdrop-blur-sm p-8 rounded-2xl border border-white/10">
                     <h4 className="text-secondary uppercase text-sm font-bold tracking-widest mb-2">School Pledge</h4>
                     <p className="italic leading-relaxed text-lg">
-                      "I pledge to Peak Point International School,<br/>
-                      To be diligent in my learning,<br/>
-                      Honest in my character,<br/>
-                      Respectful in my conduct,<br/>
-                      And excellent in all I do.<br/>
+                      "I pledge to Peak Point International School,<br />
+                      To be diligent in my learning,<br />
+                      Honest in my character,<br />
+                      Respectful in my conduct,<br />
+                      And excellent in all I do.<br />
                       So help me God."
                     </p>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div>
               <span className="text-secondary font-bold uppercase tracking-widest text-sm mb-4 block">Our Spirit</span>
               <h2 className="text-4xl mb-8 text-white">School Anthem</h2>
@@ -256,17 +256,17 @@ const About = () => {
                   <div className="text-center font-medium space-y-6">
                     <div>
                       <p className="font-bold text-secondary uppercase text-xs tracking-widest mb-2">Stanza 1</p>
-                      <p>At Peak Point School we learn and grow,<br/>With minds enlightened, hearts aglow.<br/>In truth and knowledge we are raised,<br/>To live with purpose, firm and brave.</p>
+                      <p>At Peak Point School we learn and grow,<br />With minds enlightened, hearts aglow.<br />In truth and knowledge we are raised,<br />To live with purpose, firm and brave.</p>
                     </div>
-                    
+
                     <div className="bg-primary/5 p-4 rounded-2xl border border-primary/5">
                       <p className="font-bold text-primary uppercase text-xs tracking-widest mb-2">Chorus</p>
-                      <p className="font-bold text-lg text-primary">Peak Point! Peak Point!<br/>Excellence our guide,<br/>In learning, character, and strength,<br/>We rise with hope and pride.</p>
+                      <p className="font-bold text-lg text-primary">Peak Point! Peak Point!<br />Excellence our guide,<br />In learning, character, and strength,<br />We rise with hope and pride.</p>
                     </div>
 
                     <div>
                       <p className="font-bold text-secondary uppercase text-xs tracking-widest mb-2">Stanza 2</p>
-                      <p>With discipline and vision clear,<br/>We shape tomorrow starting here.<br/>Prepared to lead, prepared to stand,<br/>Peak Point learners across the land.</p>
+                      <p>With discipline and vision clear,<br />We shape tomorrow starting here.<br />Prepared to lead, prepared to stand,<br />Peak Point learners across the land.</p>
                     </div>
                   </div>
                 </div>

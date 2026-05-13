@@ -1,12 +1,20 @@
-import React from 'react';
-import { Search, Bell, Settings, User } from 'lucide-react';
+import { Search, Settings, User, Menu } from 'lucide-react';
+import NotificationCenter from './NotificationCenter';
 
-const Topbar = ({ title, user }) => {
+const Topbar = ({ title, user, onMenuClick }) => {
   return (
-    <div className="h-20 bg-white/80 backdrop-blur-md border-b border-border px-8 flex items-center justify-between sticky top-0 z-40">
-      <div>
-        <h2 className="text-xl font-bold text-primary">{title}</h2>
-        <p className="text-xs text-text-muted font-medium">Welcome back, {user.name}</p>
+    <div className="h-20 bg-white/80 backdrop-blur-md border-b border-border px-4 md:px-8 flex items-center justify-between sticky top-0 z-40">
+      <div className="flex items-center gap-4">
+        <button 
+          onClick={onMenuClick}
+          className="lg:hidden p-2 hover:bg-bg-soft rounded-xl text-primary transition-colors"
+        >
+          <Menu size={24} />
+        </button>
+        <div>
+          <h2 className="text-lg md:text-xl font-bold text-primary truncate max-w-[200px] md:max-w-none">{title}</h2>
+          <p className="text-[10px] md:text-xs text-text-muted font-medium">Welcome, {user.name}</p>
+        </div>
       </div>
 
       <div className="flex items-center gap-6">
@@ -20,10 +28,7 @@ const Topbar = ({ title, user }) => {
         </div>
 
         <div className="flex items-center gap-3">
-          <button className="p-2.5 rounded-xl bg-bg-soft text-text-muted hover:text-primary transition-all relative">
-            <Bell size={20} />
-            <span className="absolute top-2.5 right-2.5 w-2 h-2 bg-secondary rounded-full border-2 border-white"></span>
-          </button>
+          <NotificationCenter />
           
           <div className="h-10 w-px bg-border mx-2"></div>
 
@@ -32,8 +37,12 @@ const Topbar = ({ title, user }) => {
               <p className="text-sm font-bold text-primary leading-none">{user.name}</p>
               <p className="text-[10px] text-text-muted font-bold uppercase tracking-wider mt-1">{user.id}</p>
             </div>
-            <div className="h-10 w-10 rounded-xl bg-primary text-white flex-center font-bold shadow-lg shadow-primary/20">
-              {user.name.charAt(0)}
+            <div className="h-10 w-10 rounded-xl bg-primary text-white flex-center font-bold shadow-lg shadow-primary/20 overflow-hidden">
+              {user.avatar ? (
+                <img src={user.avatar} alt="" className="w-full h-full object-cover" />
+              ) : (
+                user.name.charAt(0)
+              )}
             </div>
           </div>
         </div>
